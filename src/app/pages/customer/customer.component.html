@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <td>Sr. No.</td>
+                    <td>Name</td>
+                    <td>City</td>
+                    <td>Mobile No.</td>
+                    <td>Email</td>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngIf="customerList.value()?.data as custData">
+                    @for (item of custData; track $index) {
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td>{{item.customerName}}</td>
+                        <td>{{item.customerCity}}</td>
+                        <td>{{item.mobileNo}}</td>
+                        <td>{{item.email}}</td>
+                    </tr>
+                    }
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>
