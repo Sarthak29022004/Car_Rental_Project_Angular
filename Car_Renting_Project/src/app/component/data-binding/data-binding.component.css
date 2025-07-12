@@ -1,0 +1,9 @@
+.fontStyle {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.size {
+    height: 100px;
+    width: 100px;
+}
+tr:hover {background-color: brown;}

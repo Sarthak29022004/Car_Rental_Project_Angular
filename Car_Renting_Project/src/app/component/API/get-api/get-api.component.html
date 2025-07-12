@@ -1,0 +1,93 @@
+<h2 class="text-center">Get & Post API integration</h2>
+<div class="row">
+    <div class="col-8">
+        <div class="border rounded-4">
+            <div>
+                <h4 class="bg-warning p-2 rounded-4 rounded-bottom">Car List</h4>
+            </div>
+            <button class="btn btn-primary m-2" (click)="getApi()">Get Car</button>
+            <div class="card rounded-4 bg-warning">
+                <div class="card-body">
+                    <table class="table table-bordered border-primary table-primary">
+                        <thead>
+                            <tr>
+                                <th>Sr. no.</th>
+                                <th>Car Id</th>
+                                <th>Brand</th>
+                                <th>Model</th>
+                                <th>Rej. no.</th>
+                                <th>Daily Rate</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (item of carList; track $index) {
+                            <tr>
+                                <td>{{$index+1}}</td>
+                                <td>{{item.carId}}</td>
+                                <td>{{item.brand}}</td>
+                                <td>{{item.model}}</td>
+                                <td>{{item.regNo}}</td>
+                                <td>{{item.dailyRate}}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <button class="btn btn-success" (click)="onEdit(item)">Edit</button>
+                                    <button class="btn btn-danger ms-1" (click)="onDelete(item.carId)">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Structure for card -->
+
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <div class="row">
+                    <div class="col-6">
+                        <label for="validationDefault01" class="form-label">Reg. no.</label>
+                        <input type="text" [(ngModel)]="carObj.regNo" class="form-control" id="validationDefault01" value="" placeholder="Enter Reg. no.">
+                    </div>
+                    <div class="col-6">
+                        <label for="validationDefault02" class="form-label">Brand</label>
+                        <input type="text" [(ngModel)]="carObj.brand" class="form-control" id="validationDefault02" value="" placeholder="Enter Brand">
+                    </div>
+                    <br>
+                    <div class="col-6">
+                        <label for="validationDefault03" class="form-label">Model</label>
+                        <input type="text" [(ngModel)]="carObj.model" class="form-control" id="validationDefault03" value="" placeholder="Enter Model">
+                    </div>
+                    <div class="col-6">
+                        <label for="validationDefault04" class="form-label">Year</label>
+                        <input type="text" [(ngModel)]="carObj.year" class="form-control" id="validationDefault04" value="" placeholder="Enter Year">
+                    </div>
+                    <div class="col-6">
+                        <label for="validationDefault05" class="form-label">Color</label>
+                        <input type="text" [(ngModel)]="carObj.color" class="form-control" id="validationDefault05" value="" placeholder="Enter Color">
+                    </div>
+                    <div class="col-6">
+                        <label for="validationDefault06" class="form-label">Daily Rate</label>
+                        <input type="text" [(ngModel)]="carObj.dailyRate" class="form-control" id="validationDefault06" value="" placeholder="Enter Daily Rate">
+                    </div>
+                    <div class="col-6">
+                        <label for="validationDefault07" class="form-label">Car Image URL</label>
+                        <input type="text" [(ngModel)]="carObj.carImage" class="form-control" id="validationDefault07" value="" placeholder="Enter Car Image URL">
+                    </div>
+                </div>
+                <button type="reset" class="btn btn-secondary mt-3">Reset form</button>
+                @if (carObj.carId == 0){
+                    <button class="btn btn-primary mt-3 ms-5" (click)="postApi()">Save Car</button>
+                }@else {
+                    <button class="btn btn-warning mt-3 ms-5" (click)="updateApi()">Update Car</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>

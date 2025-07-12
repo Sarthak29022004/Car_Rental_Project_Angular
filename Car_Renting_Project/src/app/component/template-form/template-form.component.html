@@ -1,0 +1,52 @@
+<form class="row g-3 needs-validation" novalidate>
+    <div class="col-md-4">
+      <label for="validationCustom01" class="form-label">First name</label>
+      <input type="text" [(ngModel)]="studentObj.firstName" class="form-control" id="validationCustom01" name="firstName" value="" required>
+      
+    </div>
+    <div class="col-md-4">
+      <label for="validationCustom02" class="form-label">Last name</label>
+      <input type="text" [(ngModel)]="studentObj.lastName" class="form-control" id="validationCustom02" name="lastName" value="" required>
+      
+    </div>
+    <div class="col-md-4">
+      <label for="validationCustomUsername" class="form-label">Username</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text" id="inputGroupPrepend">&#64;</span>
+        <input type="text" [(ngModel)]="studentObj.username" class="form-control" id="validationCustomUsername" name="username" aria-describedby="inputGroupPrepend" required>
+        </div>
+
+    </div>
+    <div class="col-md-6">
+      <label for="validationCustom03" class="form-label">City</label>
+      <input type="text" [(ngModel)]="studentObj.city" class="form-control" id="validationCustom03" name="city" required>
+      </div>
+
+    <div class="col-md-3">
+      <label for="validationCustom04" class="form-label">State</label>
+      <select [(ngModel)]="studentObj.state" class="form-select" id="validationCustom04" name="state" required>
+        <option selected>Maharashtra</option>
+        <option>Karnataka</option>
+        <option>Hariyana</option>
+        <option>Gujarat</option>
+      </select>
+      </div>
+
+    <div class="col-md-3">
+      <label for="validationCustom05" class="form-label">Zip</label>
+      <input type="text" [(ngModel)]="studentObj.zip" class="form-control" id="validationCustom05" name="zip" required>
+      </div>
+
+    <div class="col-12">
+      <div class="form-check">
+        <input [(ngModel)]="studentObj.agreeTerms" class="form-check-input" type="checkbox" value="" id="invalidCheck" name="agreeTerms" required>
+        <label class="form-check-label" for="invalidCheck">
+          Agree to terms and conditions
+        </label>
+        </div>
+    </div>
+
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit" (click)="onSubmit()">Submit form</button>
+    </div>
+  </form>

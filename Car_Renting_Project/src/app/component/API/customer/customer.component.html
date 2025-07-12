@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-warning">
+                <h3>Customer Information</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Customer Name</th>
+                            <th>Customer City</th>
+                            <th>Customer Mobile No.</th>
+                            <th>Customer E-mail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of customerList; track $index) {
+                        <tr>
+                            <td>{{$index +1}}</td>
+                            <td>{{item.customerName}}</td>
+                            <td>{{item.customerCity}}</td>
+                            <td>{{item.mobileNo}}</td>
+                            <td>{{item.email}}</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-warning">
+                <h4>Customer</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Name</label>
+                        <input type="text" [(ngModel)]="customerObj.customerName" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">City</label>
+                        <input type="text" [(ngModel)]="customerObj.customerCity" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Mobile No.</label>
+                        <input type="text" [(ngModel)]="customerObj.mobileNo" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">E-Mail</label>
+                        <input type="text" [(ngModel)]="customerObj.email" class="form-control">
+                    </div>
+                    <div class="col-12 mt-2 d-flex justify-content-evenly">
+                        <button type="reset" class="btn btn-warning">Reset</button>
+                        <button type="reset" class="btn btn-success" (click)="postCustomer()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
